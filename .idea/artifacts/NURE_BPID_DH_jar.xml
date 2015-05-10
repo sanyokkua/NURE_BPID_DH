@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="NURE_BPID_DH:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/NURE_BPID_DH_jar</output-path>
+    <root id="archive" name="NURE_BPID_DH.jar">
+      <element id="module-output" name="NURE_BPID_DH" />
+    </root>
+  </artifact>
+</component>
