@@ -1,6 +1,8 @@
 package ua.nure.bpid.dh.Socket;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 
@@ -9,6 +11,7 @@ import java.net.Socket;
  */
 public class Client extends SocketClient {
     private Socket socket;
+
     public Client() {
         address = DEFAULT_ADDRESS;
         port = DEFAULT_PORT;
@@ -29,17 +32,20 @@ public class Client extends SocketClient {
             connected = true;
             dataInputStream = new DataInputStream(socket.getInputStream());
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
-            socketListenThread = new Thread(() -> {
-                try {
-                    while (connected) {
-                        String line = dataInputStream.readUTF();
-                        if (line != null) {
-                            notifyMessageReceivedListeners(line);
+            socketListenThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        while (connected) {
+                            String line = dataInputStream.readUTF();
+                            if (line != null) {
+                                notifyMessageReceivedListeners(line);
+                            }
                         }
+                    } catch (IOException e) {
+                        connected = false;
+                        e.printStackTrace();
                     }
-                } catch (IOException e) {
-                    connected = false;
-                    e.printStackTrace();
                 }
             });
             socketListenThread.start();

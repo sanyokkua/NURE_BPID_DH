@@ -31,21 +31,24 @@ public class Server extends SocketClient {
     public void start() throws IOException {
         try {
             serverSocket = new ServerSocket(port, 0, InetAddress.getByName(address));
-            socketListenThread = new Thread(() -> {
-                try {
-                    socketForClient = serverSocket.accept();
-                    dataInputStream = new DataInputStream(socketForClient.getInputStream());
-                    dataOutputStream = new DataOutputStream(socketForClient.getOutputStream());
-                    connected = true;
-                    while (connected) {
-                        String line = dataInputStream.readUTF();
-                        if (line != null) {
-                            notifyMessageReceivedListeners(line);
+            socketListenThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        socketForClient = serverSocket.accept();
+                        dataInputStream = new DataInputStream(socketForClient.getInputStream());
+                        dataOutputStream = new DataOutputStream(socketForClient.getOutputStream());
+                        connected = true;
+                        while (connected) {
+                            String line = dataInputStream.readUTF();
+                            if (line != null) {
+                                notifyMessageReceivedListeners(line);
+                            }
                         }
+                    } catch (IOException ex) {
+                        connected = false;
+                        ex.printStackTrace();
                     }
-                } catch (IOException ex) {
-                    connected = false;
-                    ex.printStackTrace();
                 }
             });
             socketListenThread.start();

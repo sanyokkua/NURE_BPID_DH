@@ -32,6 +32,18 @@ public class DiffieHellmanGenerator {
         publicKey = powerMod(gNumber, aNumber, pNumber);
     }
 
+    private static long powerMod(long value, long power, long mod) {
+        value %= mod;
+        long res = 1;
+        while (power != 0) {
+            if ((power & 1) != 0)
+                res = (res * value) % mod;
+            value = (value * value) % mod;
+            power >>= 1;
+        }
+        return res;
+    }
+
     public int getA() {
         return aNumber;
     }
@@ -77,18 +89,6 @@ public class DiffieHellmanGenerator {
             if (ok) return res;
         }
         return -1;
-    }
-
-    private static long powerMod(long value, long power, long mod) {
-        value %= mod;
-        long res = 1;
-        while (power != 0) {
-            if ((power & 1) != 0)
-                res = (res * value) % mod;
-            value = (value * value) % mod;
-            power >>= 1;
-        }
-        return res;
     }
 
     private int generatePrimeNumber() {
