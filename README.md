@@ -1,3 +1,3 @@
 # NURE_BPID_DH
-It is a simple chat on sockets with Diffie-Hellman key exchange. For encryption is used Vigenere 
-encryption, because it is not principal in this task.
+This is a simple chat on sockets with **Diffie-Hellman** keys exchange (https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange).
+For encryption used Vigenère cipher (from https://github.com/sanyokkua/UNIVERSITY_LAB_VIGENERE).
