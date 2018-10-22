@@ -1,6 +1,6 @@
-package ua.nure.bpid.dh;
+package com.kostenko.dh;
 
-import ua.nure.bpid.dh.gui.MainWindow;
+import com.kostenko.dh.gui.MainWindow;
 
 public class Main {
 

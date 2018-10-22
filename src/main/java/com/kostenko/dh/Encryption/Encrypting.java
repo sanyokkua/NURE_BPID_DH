@@ -1,4 +1,4 @@
-package ua.nure.bpid.dh.Encryption;
+package com.kostenko.dh.Encryption;
 
 /**
  * Created by Alexander on 09.05.2015.

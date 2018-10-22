@@ -1,4 +1,4 @@
-package ua.nure.bpid.dh.Socket;
+package com.kostenko.dh.Socket;
 
 /**
  * Created by Alexander on 06.05.2015.

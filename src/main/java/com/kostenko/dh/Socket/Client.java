@@ -1,4 +1,4 @@
-package ua.nure.bpid.dh.Socket;
+package com.kostenko.dh.Socket;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

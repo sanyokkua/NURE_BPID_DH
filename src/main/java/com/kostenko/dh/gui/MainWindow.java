@@ -1,11 +1,11 @@
-package ua.nure.bpid.dh.gui;
+package com.kostenko.dh.gui;
 
-import ua.nure.bpid.dh.Encryption.DiffieHellmanGenerator;
-import ua.nure.bpid.dh.Encryption.Encrypting;
-import ua.nure.bpid.dh.Socket.Client;
-import ua.nure.bpid.dh.Socket.MessageReceivedListener;
-import ua.nure.bpid.dh.Socket.Server;
-import ua.nure.bpid.dh.Socket.SocketClient;
+import com.kostenko.dh.Socket.Server;
+import com.kostenko.dh.Socket.SocketClient;
+import com.kostenko.dh.Encryption.DiffieHellmanGenerator;
+import com.kostenko.dh.Encryption.Encrypting;
+import com.kostenko.dh.Socket.Client;
+import com.kostenko.dh.Socket.MessageReceivedListener;
 
 import javax.swing.*;
 import java.awt.*;

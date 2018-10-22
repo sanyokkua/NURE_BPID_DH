@@ -1,4 +1,4 @@
-package ua.nure.bpid.dh.Encryption;
+package com.kostenko.dh.Encryption;
 
 import java.util.ArrayList;
 import java.util.Arrays;
